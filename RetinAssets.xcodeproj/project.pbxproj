@@ -1,0 +1,513 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		46A07D341A8F998D00B9F28A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A07D331A8F998D00B9F28A /* AppDelegate.swift */; };
+		46A07D361A8F998D00B9F28A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46A07D351A8F998D00B9F28A /* Images.xcassets */; };
+		46A07D451A8F998D00B9F28A /* RetinAssetsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A07D441A8F998D00B9F28A /* RetinAssetsTests.swift */; };
+		46A07D521A8F9A7D00B9F28A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46A07D511A8F9A7D00B9F28A /* MainMenu.xib */; };
+		46A07D561A8F9B4200B9F28A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A07D541A8F9B4200B9F28A /* MainViewController.swift */; };
+		46A07D571A8F9B4200B9F28A /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46A07D551A8F9B4200B9F28A /* MainViewController.xib */; };
+		46A07D611A8FA60000B9F28A /* KDEDroppableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A07D601A8FA60000B9F28A /* KDEDroppableView.swift */; };
+		46A07D651A8FD05800B9F28A /* NSURLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A07D641A8FD05800B9F28A /* NSURLExtension.swift */; };
+		46A07D681A8FD47B00B9F28A /* NSImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A07D671A8FD47B00B9F28A /* NSImageExtension.swift */; };
+		46A07D691A8FEAA900B9F28A /* NSURLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A07D641A8FD05800B9F28A /* NSURLExtension.swift */; };
+		46A07D6E1A8FEB6D00B9F28A /* Resizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A07D6D1A8FEB6D00B9F28A /* Resizer.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		46A07D3F1A8F998D00B9F28A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 46A07D261A8F998D00B9F28A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 46A07D2D1A8F998D00B9F28A;
+			remoteInfo = RetinAssets;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		46A07D2E1A8F998D00B9F28A /* RetinAssets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RetinAssets.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		46A07D321A8F998D00B9F28A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		46A07D331A8F998D00B9F28A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		46A07D351A8F998D00B9F28A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		46A07D3E1A8F998D00B9F28A /* RetinAssetsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RetinAssetsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		46A07D431A8F998D00B9F28A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		46A07D441A8F998D00B9F28A /* RetinAssetsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetinAssetsTests.swift; sourceTree = "<group>"; };
+		46A07D511A8F9A7D00B9F28A /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		46A07D541A8F9B4200B9F28A /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		46A07D551A8F9B4200B9F28A /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		46A07D601A8FA60000B9F28A /* KDEDroppableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDEDroppableView.swift; sourceTree = "<group>"; };
+		46A07D641A8FD05800B9F28A /* NSURLExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLExtension.swift; sourceTree = "<group>"; };
+		46A07D671A8FD47B00B9F28A /* NSImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSImageExtension.swift; sourceTree = "<group>"; };
+		46A07D6D1A8FEB6D00B9F28A /* Resizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resizer.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		46A07D2B1A8F998D00B9F28A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46A07D3B1A8F998D00B9F28A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		46A07D251A8F998D00B9F28A = {
+			isa = PBXGroup;
+			children = (
+				46A07D301A8F998D00B9F28A /* RetinAssets */,
+				46A07D411A8F998D00B9F28A /* RetinAssetsTests */,
+				46A07D2F1A8F998D00B9F28A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		46A07D2F1A8F998D00B9F28A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				46A07D2E1A8F998D00B9F28A /* RetinAssets.app */,
+				46A07D3E1A8F998D00B9F28A /* RetinAssetsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		46A07D301A8F998D00B9F28A /* RetinAssets */ = {
+			isa = PBXGroup;
+			children = (
+				46A07D6B1A8FEB1500B9F28A /* controller */,
+				46A07D621A8FD01E00B9F28A /* utils */,
+				46A07D5C1A8FA5A200B9F28A /* views */,
+				46A07D501A8F999E00B9F28A /* view_controllers */,
+				46A07D4F1A8F999700B9F28A /* resources */,
+				46A07D4E1A8F999300B9F28A /* application */,
+				46A07D311A8F998D00B9F28A /* supporting_files */,
+			);
+			path = RetinAssets;
+			sourceTree = "<group>";
+		};
+		46A07D311A8F998D00B9F28A /* supporting_files */ = {
+			isa = PBXGroup;
+			children = (
+				46A07D321A8F998D00B9F28A /* Info.plist */,
+			);
+			path = supporting_files;
+			sourceTree = "<group>";
+		};
+		46A07D411A8F998D00B9F28A /* RetinAssetsTests */ = {
+			isa = PBXGroup;
+			children = (
+				46A07D441A8F998D00B9F28A /* RetinAssetsTests.swift */,
+				46A07D421A8F998D00B9F28A /* Supporting Files */,
+			);
+			path = RetinAssetsTests;
+			sourceTree = "<group>";
+		};
+		46A07D421A8F998D00B9F28A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				46A07D431A8F998D00B9F28A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		46A07D4E1A8F999300B9F28A /* application */ = {
+			isa = PBXGroup;
+			children = (
+				46A07D511A8F9A7D00B9F28A /* MainMenu.xib */,
+				46A07D331A8F998D00B9F28A /* AppDelegate.swift */,
+			);
+			path = application;
+			sourceTree = "<group>";
+		};
+		46A07D4F1A8F999700B9F28A /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				46A07D351A8F998D00B9F28A /* Images.xcassets */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		46A07D501A8F999E00B9F28A /* view_controllers */ = {
+			isa = PBXGroup;
+			children = (
+				46A07D531A8F9B1D00B9F28A /* main_view_controller */,
+			);
+			path = view_controllers;
+			sourceTree = "<group>";
+		};
+		46A07D531A8F9B1D00B9F28A /* main_view_controller */ = {
+			isa = PBXGroup;
+			children = (
+				46A07D541A8F9B4200B9F28A /* MainViewController.swift */,
+				46A07D551A8F9B4200B9F28A /* MainViewController.xib */,
+			);
+			path = main_view_controller;
+			sourceTree = "<group>";
+		};
+		46A07D5C1A8FA5A200B9F28A /* views */ = {
+			isa = PBXGroup;
+			children = (
+				46A07D5D1A8FA5B000B9F28A /* kde_droppable_view */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		46A07D5D1A8FA5B000B9F28A /* kde_droppable_view */ = {
+			isa = PBXGroup;
+			children = (
+				46A07D601A8FA60000B9F28A /* KDEDroppableView.swift */,
+			);
+			path = kde_droppable_view;
+			sourceTree = "<group>";
+		};
+		46A07D621A8FD01E00B9F28A /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				46A07D661A8FD45300B9F28A /* ns_image_extension */,
+				46A07D631A8FD02F00B9F28A /* ns_url_extension */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		46A07D631A8FD02F00B9F28A /* ns_url_extension */ = {
+			isa = PBXGroup;
+			children = (
+				46A07D641A8FD05800B9F28A /* NSURLExtension.swift */,
+			);
+			path = ns_url_extension;
+			sourceTree = "<group>";
+		};
+		46A07D661A8FD45300B9F28A /* ns_image_extension */ = {
+			isa = PBXGroup;
+			children = (
+				46A07D671A8FD47B00B9F28A /* NSImageExtension.swift */,
+			);
+			path = ns_image_extension;
+			sourceTree = "<group>";
+		};
+		46A07D6B1A8FEB1500B9F28A /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				46A07D6C1A8FEB5700B9F28A /* resizer_controller */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		46A07D6C1A8FEB5700B9F28A /* resizer_controller */ = {
+			isa = PBXGroup;
+			children = (
+				46A07D6D1A8FEB6D00B9F28A /* Resizer.swift */,
+			);
+			path = resizer_controller;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		46A07D2D1A8F998D00B9F28A /* RetinAssets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 46A07D481A8F998D00B9F28A /* Build configuration list for PBXNativeTarget "RetinAssets" */;
+			buildPhases = (
+				46A07D2A1A8F998D00B9F28A /* Sources */,
+				46A07D2B1A8F998D00B9F28A /* Frameworks */,
+				46A07D2C1A8F998D00B9F28A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RetinAssets;
+			productName = RetinAssets;
+			productReference = 46A07D2E1A8F998D00B9F28A /* RetinAssets.app */;
+			productType = "com.apple.product-type.application";
+		};
+		46A07D3D1A8F998D00B9F28A /* RetinAssetsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 46A07D4B1A8F998D00B9F28A /* Build configuration list for PBXNativeTarget "RetinAssetsTests" */;
+			buildPhases = (
+				46A07D3A1A8F998D00B9F28A /* Sources */,
+				46A07D3B1A8F998D00B9F28A /* Frameworks */,
+				46A07D3C1A8F998D00B9F28A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				46A07D401A8F998D00B9F28A /* PBXTargetDependency */,
+			);
+			name = RetinAssetsTests;
+			productName = RetinAssetsTests;
+			productReference = 46A07D3E1A8F998D00B9F28A /* RetinAssetsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		46A07D261A8F998D00B9F28A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Kevin Delannoy";
+				TargetAttributes = {
+					46A07D2D1A8F998D00B9F28A = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					46A07D3D1A8F998D00B9F28A = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = 46A07D2D1A8F998D00B9F28A;
+					};
+				};
+			};
+			buildConfigurationList = 46A07D291A8F998D00B9F28A /* Build configuration list for PBXProject "RetinAssets" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+			);
+			mainGroup = 46A07D251A8F998D00B9F28A;
+			productRefGroup = 46A07D2F1A8F998D00B9F28A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				46A07D2D1A8F998D00B9F28A /* RetinAssets */,
+				46A07D3D1A8F998D00B9F28A /* RetinAssetsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		46A07D2C1A8F998D00B9F28A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46A07D361A8F998D00B9F28A /* Images.xcassets in Resources */,
+				46A07D571A8F9B4200B9F28A /* MainViewController.xib in Resources */,
+				46A07D521A8F9A7D00B9F28A /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46A07D3C1A8F998D00B9F28A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		46A07D2A1A8F998D00B9F28A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46A07D651A8FD05800B9F28A /* NSURLExtension.swift in Sources */,
+				46A07D341A8F998D00B9F28A /* AppDelegate.swift in Sources */,
+				46A07D561A8F9B4200B9F28A /* MainViewController.swift in Sources */,
+				46A07D681A8FD47B00B9F28A /* NSImageExtension.swift in Sources */,
+				46A07D6E1A8FEB6D00B9F28A /* Resizer.swift in Sources */,
+				46A07D611A8FA60000B9F28A /* KDEDroppableView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46A07D3A1A8F998D00B9F28A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46A07D691A8FEAA900B9F28A /* NSURLExtension.swift in Sources */,
+				46A07D451A8F998D00B9F28A /* RetinAssetsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		46A07D401A8F998D00B9F28A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 46A07D2D1A8F998D00B9F28A /* RetinAssets */;
+			targetProxy = 46A07D3F1A8F998D00B9F28A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		46A07D461A8F998D00B9F28A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		46A07D471A8F998D00B9F28A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		46A07D491A8F998D00B9F28A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/RetinAssets/supporting_files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		46A07D4A1A8F998D00B9F28A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/RetinAssets/supporting_files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		46A07D4C1A8F998D00B9F28A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = RetinAssetsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RetinAssets.app/Contents/MacOS/RetinAssets";
+			};
+			name = Debug;
+		};
+		46A07D4D1A8F998D00B9F28A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = RetinAssetsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RetinAssets.app/Contents/MacOS/RetinAssets";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		46A07D291A8F998D00B9F28A /* Build configuration list for PBXProject "RetinAssets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46A07D461A8F998D00B9F28A /* Debug */,
+				46A07D471A8F998D00B9F28A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		46A07D481A8F998D00B9F28A /* Build configuration list for PBXNativeTarget "RetinAssets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46A07D491A8F998D00B9F28A /* Debug */,
+				46A07D4A1A8F998D00B9F28A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		46A07D4B1A8F998D00B9F28A /* Build configuration list for PBXNativeTarget "RetinAssetsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46A07D4C1A8F998D00B9F28A /* Debug */,
+				46A07D4D1A8F998D00B9F28A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 46A07D261A8F998D00B9F28A /* Project object */;
+}
