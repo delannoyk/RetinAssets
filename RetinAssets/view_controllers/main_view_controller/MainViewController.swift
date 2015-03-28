@@ -18,8 +18,9 @@ class MainViewController: NSViewController, NSOpenSavePanelDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.viewDroppable.onDrop = {(URLs) in
-            self.convertURLs(URLs)
+        self.viewDroppable.onDrop = {[weak self] (URLs) in
+            self?.convertURLs(URLs)
+            return
         }
     }
 
