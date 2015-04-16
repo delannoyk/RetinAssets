@@ -38,7 +38,7 @@ extension NSURL {
         if let imageType = self.imageType() {
             if let regex = NSRegularExpression(pattern: "@([2-9])x$", options: nil, error: nil) {
                 let lastComponents = (self.absoluteString?.lastPathComponent.stringByDeletingPathExtension) ?? ""
-                if let match = regex.firstMatchInString(lastComponents, options: nil, range: NSMakeRange(0, lastComponents.utf16Count)) {
+                if let match = regex.firstMatchInString(lastComponents, options: nil, range: NSMakeRange(0, count(lastComponents.utf16))) {
                     let scaleString = NSString(string: lastComponents).substringWithRange(match.rangeAtIndex(1))
                     return scaleString.toInt()
                 }

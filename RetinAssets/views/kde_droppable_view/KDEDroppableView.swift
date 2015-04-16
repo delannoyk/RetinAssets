@@ -14,9 +14,8 @@ class KDEDroppableView: NSView {
     // MARK: - Initialization
     ////////////////////////////////////////////////////////////////////////////
 
-    override init() {
-        super.init()
-        self.commonInit()
+    convenience init() {
+        self.init(frame: NSRect.zeroRect)
     }
 
     override init(frame frameRect: NSRect) {

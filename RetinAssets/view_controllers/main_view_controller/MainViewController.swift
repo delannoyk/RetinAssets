@@ -53,9 +53,9 @@ class MainViewController: NSViewController, NSOpenSavePanelDelegate {
         panel.canCreateDirectories = true
         panel.title = "Select @3x or @2x files"
 
-        let delegate = NSApplication.sharedApplication().delegate as AppDelegate
+        let delegate = NSApplication.sharedApplication().delegate as! AppDelegate
         panel.beginSheetModalForWindow(delegate.window, completionHandler: { (buttonIndex) -> Void in
-            if buttonIndex == NSOKButton {
+            if buttonIndex == NSModalResponseOK {
                 if let URLs = panel.URLs as? [NSURL] {
                     self.convertURLs(URLs)
                 }
@@ -84,7 +84,7 @@ class MainViewController: NSViewController, NSOpenSavePanelDelegate {
                 }()
                 alert.addButtonWithTitle("OK")
 
-                let delegate = NSApplication.sharedApplication().delegate as AppDelegate
+                let delegate = NSApplication.sharedApplication().delegate as! AppDelegate
                 alert.beginSheetModalForWindow(delegate.window, completionHandler: nil)
             })
         })
