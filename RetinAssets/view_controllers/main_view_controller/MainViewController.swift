@@ -18,8 +18,8 @@ class MainViewController: NSViewController, NSOpenSavePanelDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.viewDroppable.onDrop = {[weak self] (URLs) in
-            self?.convertURLs(URLs)
+        self.viewDroppable.onDrop = {[weak self] (filenames) in
+            self?.convertFiles(filenames)
             return
         }
     }
@@ -63,7 +63,7 @@ class MainViewController: NSViewController, NSOpenSavePanelDelegate {
         })
     }
 
-    private func convertURLs(URLs: [NSURL]) {
+    func convertURLs(URLs: [NSURL]) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
             let converted = resizeImages(atURLs: URLs, overwrite: (self.buttonOverwrite.state == NSOnState))
 
@@ -88,6 +88,19 @@ class MainViewController: NSViewController, NSOpenSavePanelDelegate {
                 alert.beginSheetModalForWindow(delegate.window, completionHandler: nil)
             })
         })
+    }
+
+    func convertFiles(files: [String]) {
+        let urls = map(files, { (element) -> NSURL? in
+            return NSURL(fileURLWithPath: element)
+        }).reduce([], combine: { (list, object) -> [NSURL] in
+            if let object = object {
+                return list + [object]
+            }
+            return list
+        })
+
+        self.convertURLs(urls)
     }
 
     ////////////////////////////////////////////////////////////////////////////

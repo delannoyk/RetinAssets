@@ -25,13 +25,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     //Drag & Drop onto the app icon
     func application(sender: NSApplication, openFile filename: String) -> Bool {
-        //TODO:
+        self.application(sender, openFiles: [filename])
         return true
     }
 
     //Drag & Drop onto the app icon
     func application(sender: NSApplication, openFiles filenames: [AnyObject]) {
-        //TODO:
+        if let filenames = filenames as? [String] {
+            if let controller = self.window.contentViewController as? MainViewController {
+                controller.convertFiles(filenames)
+            }
+            else {
+                let controller = MainViewController(nibName: "MainViewController", bundle: nil)
+                self.window.contentViewController = controller
+
+                controller?.convertFiles(filenames)
+            }
+        }
     }
 
     ////////////////////////////////////////////////////////////////////////////

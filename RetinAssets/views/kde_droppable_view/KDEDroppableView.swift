@@ -9,7 +9,7 @@
 import Cocoa
 
 class KDEDroppableView: NSView {
-    var onDrop: ([NSURL] -> ())?
+    var onDrop: ([String] -> ())?
 
     // MARK: - Initialization
     ////////////////////////////////////////////////////////////////////////////
@@ -52,22 +52,9 @@ class KDEDroppableView: NSView {
 
     override func performDragOperation(sender: NSDraggingInfo) -> Bool {
         let pBoard = sender.draggingPasteboard()
-
         if let files = pBoard.propertyListForType(NSFilenamesPboardType) as? [String] {
-            let urls = map(files, { (element) -> NSURL? in
-                return NSURL(fileURLWithPath: element)
-            }).reduce([], combine: { (list, object) -> [NSURL] in
-                if let object = object {
-                    return list + [object]
-                }
-                return list
-            })
-
-            if let onDrop = self.onDrop {
-                onDrop(urls)
-            }
+            self.onDrop?(files)
         }
-
         return true
     }
 
