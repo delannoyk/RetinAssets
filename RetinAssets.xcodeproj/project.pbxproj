@@ -15,9 +15,9 @@
 		46A07D571A8F9B4200B9F28A /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46A07D551A8F9B4200B9F28A /* MainViewController.xib */; };
 		46A07D611A8FA60000B9F28A /* KDEDroppableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A07D601A8FA60000B9F28A /* KDEDroppableView.swift */; };
 		46A07D651A8FD05800B9F28A /* NSURLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A07D641A8FD05800B9F28A /* NSURLExtension.swift */; };
-		46A07D681A8FD47B00B9F28A /* NSImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A07D671A8FD47B00B9F28A /* NSImageExtension.swift */; };
 		46A07D691A8FEAA900B9F28A /* NSURLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A07D641A8FD05800B9F28A /* NSURLExtension.swift */; };
-		46A07D6E1A8FEB6D00B9F28A /* Resizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A07D6D1A8FEB6D00B9F28A /* Resizer.swift */; };
+		46F6D1AD1B0BA95300F5E7B6 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F6D1AC1B0BA95300F5E7B6 /* Image.swift */; };
+		46F6D1B41B0BBD2E00F5E7B6 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F6D1B31B0BBD2E00F5E7B6 /* ArrayExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,8 +43,8 @@
 		46A07D551A8F9B4200B9F28A /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		46A07D601A8FA60000B9F28A /* KDEDroppableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDEDroppableView.swift; sourceTree = "<group>"; };
 		46A07D641A8FD05800B9F28A /* NSURLExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLExtension.swift; sourceTree = "<group>"; };
-		46A07D671A8FD47B00B9F28A /* NSImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSImageExtension.swift; sourceTree = "<group>"; };
-		46A07D6D1A8FEB6D00B9F28A /* Resizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resizer.swift; sourceTree = "<group>"; };
+		46F6D1AC1B0BA95300F5E7B6 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		46F6D1B31B0BBD2E00F5E7B6 /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +86,7 @@
 		46A07D301A8F998D00B9F28A /* RetinAssets */ = {
 			isa = PBXGroup;
 			children = (
-				46A07D6B1A8FEB1500B9F28A /* controller */,
+				46F6D1AB1B0BA94000F5E7B6 /* image */,
 				46A07D621A8FD01E00B9F28A /* utils */,
 				46A07D5C1A8FA5A200B9F28A /* views */,
 				46A07D501A8F999E00B9F28A /* view_controllers */,
@@ -175,7 +175,7 @@
 		46A07D621A8FD01E00B9F28A /* utils */ = {
 			isa = PBXGroup;
 			children = (
-				46A07D661A8FD45300B9F28A /* ns_image_extension */,
+				46F6D1B21B0BBD1000F5E7B6 /* array_extension */,
 				46A07D631A8FD02F00B9F28A /* ns_url_extension */,
 			);
 			path = utils;
@@ -189,28 +189,20 @@
 			path = ns_url_extension;
 			sourceTree = "<group>";
 		};
-		46A07D661A8FD45300B9F28A /* ns_image_extension */ = {
+		46F6D1AB1B0BA94000F5E7B6 /* image */ = {
 			isa = PBXGroup;
 			children = (
-				46A07D671A8FD47B00B9F28A /* NSImageExtension.swift */,
+				46F6D1AC1B0BA95300F5E7B6 /* Image.swift */,
 			);
-			path = ns_image_extension;
+			path = image;
 			sourceTree = "<group>";
 		};
-		46A07D6B1A8FEB1500B9F28A /* controller */ = {
+		46F6D1B21B0BBD1000F5E7B6 /* array_extension */ = {
 			isa = PBXGroup;
 			children = (
-				46A07D6C1A8FEB5700B9F28A /* resizer_controller */,
+				46F6D1B31B0BBD2E00F5E7B6 /* ArrayExtension.swift */,
 			);
-			path = controller;
-			sourceTree = "<group>";
-		};
-		46A07D6C1A8FEB5700B9F28A /* resizer_controller */ = {
-			isa = PBXGroup;
-			children = (
-				46A07D6D1A8FEB6D00B9F28A /* Resizer.swift */,
-			);
-			path = resizer_controller;
+			path = array_extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,11 +304,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46F6D1AD1B0BA95300F5E7B6 /* Image.swift in Sources */,
 				46A07D651A8FD05800B9F28A /* NSURLExtension.swift in Sources */,
 				46A07D341A8F998D00B9F28A /* AppDelegate.swift in Sources */,
 				46A07D561A8F9B4200B9F28A /* MainViewController.swift in Sources */,
-				46A07D681A8FD47B00B9F28A /* NSImageExtension.swift in Sources */,
-				46A07D6E1A8FEB6D00B9F28A /* Resizer.swift in Sources */,
+				46F6D1B41B0BBD2E00F5E7B6 /* ArrayExtension.swift in Sources */,
 				46A07D611A8FA60000B9F28A /* KDEDroppableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

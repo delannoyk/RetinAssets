@@ -64,16 +64,44 @@ class MainViewController: NSViewController, NSOpenSavePanelDelegate {
     }
 
     func convertURLs(URLs: [NSURL]) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
-            let converted = resizeImages(atURLs: URLs, overwrite: (self.buttonOverwrite.state == NSOnState))
+        let images = compact(URLs.map { Image.fromDirectoryAtURL($0) }).flattern(identity)
+        convertImages(images)
+    }
 
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+    func convertFiles(files: [String]) {
+        let images = compact(files.map { Image.fromDirectoryAtPath($0) }).flattern(identity)
+        convertImages(images)
+    }
+
+    private func convertImages(images: [Image]) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+            var convertedFiles = [String]()
+
+            for image in images {
+                let imageScale = image.scale
+
+                for scale in 1..<imageScale {
+                    let factor = CGFloat(imageScale) / CGFloat(scale)
+                    let newFilename = image.filename + (scale > 1 ? "@\(scale)x" : "") + ".\(image.fileExtension)"
+
+                    if let newFileURL = image.fileURL.URLByDeletingLastPathComponent?.URLByAppendingPathComponent(newFilename) {
+                        if self.buttonOverwrite.state == NSOnState || !NSFileManager.defaultManager().fileExistsAtPath(newFileURL.path!) {
+                            if let data = image.resizeAtScale(factor) {
+                                data.writeToURL(newFileURL, atomically: true)
+                                convertedFiles.append(newFilename)
+                            }
+                        }
+                    }
+                }
+            }
+
+            dispatch_sync(dispatch_get_main_queue(), { () -> Void in
                 let alert = NSAlert()
                 alert.alertStyle = .InformationalAlertStyle
                 alert.messageText = {
                     var str = ""
-                    if converted.count > 0 {
-                        for convertedFile in converted {
+                    if convertedFiles.count > 0 {
+                        for convertedFile in convertedFiles {
                             str = str + "File \(convertedFile) was converted\n"
                         }
                     }
@@ -90,19 +118,6 @@ class MainViewController: NSViewController, NSOpenSavePanelDelegate {
         })
     }
 
-    func convertFiles(files: [String]) {
-        let urls = map(files, { (element) -> NSURL? in
-            return NSURL(fileURLWithPath: element)
-        }).reduce([], combine: { (list, object) -> [NSURL] in
-            if let object = object {
-                return list + [object]
-            }
-            return list
-        })
-
-        self.convertURLs(urls)
-    }
-
     ////////////////////////////////////////////////////////////////////////////
 
 
@@ -110,8 +125,37 @@ class MainViewController: NSViewController, NSOpenSavePanelDelegate {
     ////////////////////////////////////////////////////////////////////////////
 
     func panel(sender: AnyObject, shouldEnableURL url: NSURL) -> Bool {
-        return (url.directoryURL || url.scaleFromImageURL() != nil)
+        return true
     }
 
     ////////////////////////////////////////////////////////////////////////////
 }
+
+// MARK: Image extension
+////////////////////////////////////////////////////////////////////////////
+
+extension Image {
+    var scale: Int {
+        if let regex = NSRegularExpression(pattern: "@([2-9])x$", options: nil, error: nil) {
+            let lastComponent = fileURL.absoluteString?.lastPathComponent.stringByDeletingPathExtension ?? ""
+            if let match = regex.firstMatchInString(lastComponent, options: nil, range: NSMakeRange(0, count(lastComponent))) {
+                if let scale = (lastComponent as NSString).substringWithRange(match.rangeAtIndex(1)).toInt() {
+                    return scale
+                }
+            }
+        }
+        return 1
+    }
+
+    var filename: String {
+        let lastComponent = (fileURL.lastPathComponent ?? "")
+        return lastComponent.stringByReplacingOccurrencesOfString("@\(scale)x",
+            withString: "").stringByDeletingPathExtension
+    }
+
+    var fileExtension: String {
+        return fileURL.pathExtension ?? ""
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////
