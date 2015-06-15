@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		465D7B301B2F555600FF913E /* icons.icns in Resources */ = {isa = PBXBuildFile; fileRef = 465D7B2F1B2F555600FF913E /* icons.icns */; };
 		46A07D341A8F998D00B9F28A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A07D331A8F998D00B9F28A /* AppDelegate.swift */; };
-		46A07D361A8F998D00B9F28A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46A07D351A8F998D00B9F28A /* Images.xcassets */; };
 		46A07D451A8F998D00B9F28A /* RetinAssetsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A07D441A8F998D00B9F28A /* RetinAssetsTests.swift */; };
 		46A07D521A8F9A7D00B9F28A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46A07D511A8F9A7D00B9F28A /* MainMenu.xib */; };
 		46A07D561A8F9B4200B9F28A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A07D541A8F9B4200B9F28A /* MainViewController.swift */; };
@@ -31,10 +31,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		465D7B2F1B2F555600FF913E /* icons.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = icons.icns; path = RetinAssets/icons.icns; sourceTree = SOURCE_ROOT; };
+		468AF2351B274EE3009FD814 /* RetinAssets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = RetinAssets.entitlements; sourceTree = "<group>"; };
 		46A07D2E1A8F998D00B9F28A /* RetinAssets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RetinAssets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46A07D321A8F998D00B9F28A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46A07D331A8F998D00B9F28A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		46A07D351A8F998D00B9F28A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		46A07D3E1A8F998D00B9F28A /* RetinAssetsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RetinAssetsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		46A07D431A8F998D00B9F28A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46A07D441A8F998D00B9F28A /* RetinAssetsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetinAssetsTests.swift; sourceTree = "<group>"; };
@@ -86,6 +87,7 @@
 		46A07D301A8F998D00B9F28A /* RetinAssets */ = {
 			isa = PBXGroup;
 			children = (
+				468AF2351B274EE3009FD814 /* RetinAssets.entitlements */,
 				46F6D1AB1B0BA94000F5E7B6 /* image */,
 				46A07D621A8FD01E00B9F28A /* utils */,
 				46A07D5C1A8FA5A200B9F28A /* views */,
@@ -134,7 +136,7 @@
 		46A07D4F1A8F999700B9F28A /* resources */ = {
 			isa = PBXGroup;
 			children = (
-				46A07D351A8F998D00B9F28A /* Images.xcassets */,
+				465D7B2F1B2F555600FF913E /* icons.icns */,
 			);
 			path = resources;
 			sourceTree = "<group>";
@@ -254,6 +256,12 @@
 				TargetAttributes = {
 					46A07D2D1A8F998D00B9F28A = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = 937TDBQ4TP;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					46A07D3D1A8F998D00B9F28A = {
 						CreatedOnToolsVersion = 6.3;
@@ -284,9 +292,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46A07D361A8F998D00B9F28A /* Images.xcassets in Resources */,
 				46A07D571A8F9B4200B9F28A /* MainViewController.xib in Resources */,
 				46A07D521A8F9A7D00B9F28A /* MainMenu.xib in Resources */,
+				465D7B301B2F555600FF913E /* icons.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,7 +422,8 @@
 		46A07D491A8F998D00B9F28A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = RetinAssets/RetinAssets.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/RetinAssets/supporting_files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -425,11 +434,13 @@
 		46A07D4A1A8F998D00B9F28A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = RetinAssets/RetinAssets.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/RetinAssets/supporting_files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0757929a-d73a-4dcf-abc1-3aa2d0c1a3fe";
 			};
 			name = Release;
 		};
