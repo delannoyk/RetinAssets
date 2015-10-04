@@ -16,6 +16,7 @@
 		46A07D611A8FA60000B9F28A /* KDEDroppableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A07D601A8FA60000B9F28A /* KDEDroppableView.swift */; };
 		46A07D651A8FD05800B9F28A /* NSURLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A07D641A8FD05800B9F28A /* NSURLExtension.swift */; };
 		46A07D691A8FEAA900B9F28A /* NSURLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A07D641A8FD05800B9F28A /* NSURLExtension.swift */; };
+		46DF15471BC1230C007CD8C0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46DF15461BC1230C007CD8C0 /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
 		46F6D1AD1B0BA95300F5E7B6 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F6D1AC1B0BA95300F5E7B6 /* Image.swift */; };
 		46F6D1B41B0BBD2E00F5E7B6 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F6D1B31B0BBD2E00F5E7B6 /* ArrayExtension.swift */; };
 /* End PBXBuildFile section */
@@ -44,6 +45,7 @@
 		46A07D551A8F9B4200B9F28A /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		46A07D601A8FA60000B9F28A /* KDEDroppableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDEDroppableView.swift; sourceTree = "<group>"; };
 		46A07D641A8FD05800B9F28A /* NSURLExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLExtension.swift; sourceTree = "<group>"; };
+		46DF15461BC1230C007CD8C0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		46F6D1AC1B0BA95300F5E7B6 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		46F6D1B31B0BBD2E00F5E7B6 /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				465D7B2F1B2F555600FF913E /* icons.icns */,
+				46DF15461BC1230C007CD8C0 /* Images.xcassets */,
 			);
 			path = resources;
 			sourceTree = "<group>";
@@ -251,7 +254,9 @@
 		46A07D261A8F998D00B9F28A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Kevin Delannoy";
 				TargetAttributes = {
 					46A07D2D1A8F998D00B9F28A = {
@@ -293,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46A07D571A8F9B4200B9F28A /* MainViewController.xib in Resources */,
+				46DF15471BC1230C007CD8C0 /* Images.xcassets in Resources */,
 				46A07D521A8F9A7D00B9F28A /* MainMenu.xib in Resources */,
 				465D7B301B2F555600FF913E /* icons.icns in Resources */,
 			);
@@ -362,6 +368,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -422,11 +429,14 @@
 		46A07D491A8F998D00B9F28A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RetinAssets/RetinAssets.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/RetinAssets/supporting_files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "be.delannoyk.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -434,11 +444,14 @@
 		46A07D4A1A8F998D00B9F28A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RetinAssets/RetinAssets.entitlements;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application: Kevin DELANNOY (937TDBQ4TP)";
 				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/RetinAssets/supporting_files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "be.delannoyk.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "0757929a-d73a-4dcf-abc1-3aa2d0c1a3fe";
 			};
@@ -459,6 +472,7 @@
 				);
 				INFOPLIST_FILE = RetinAssetsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "be.delannoyk.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RetinAssets.app/Contents/MacOS/RetinAssets";
 			};
@@ -475,6 +489,7 @@
 				);
 				INFOPLIST_FILE = RetinAssetsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "be.delannoyk.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RetinAssets.app/Contents/MacOS/RetinAssets";
 			};

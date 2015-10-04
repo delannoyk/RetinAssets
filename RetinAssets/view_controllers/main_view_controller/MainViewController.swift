@@ -30,11 +30,11 @@ class MainViewController: NSViewController, NSOpenSavePanelDelegate {
     // MARK: - Actions
     ////////////////////////////////////////////////////////////////////////////
 
-    @IBAction func buttonAddImagesPressed(AnyObject) {
+    @IBAction func buttonAddImagesPressed(_: AnyObject) {
         self.displayOpenPanel()
     }
 
-    @IBAction func clickGestureRecognizedOnDroppableView(AnyObject) {
+    @IBAction func clickGestureRecognizedOnDroppableView(_: AnyObject) {
         self.displayOpenPanel()
     }
 
@@ -56,20 +56,18 @@ class MainViewController: NSViewController, NSOpenSavePanelDelegate {
         let delegate = NSApplication.sharedApplication().delegate as! AppDelegate
         panel.beginSheetModalForWindow(delegate.window, completionHandler: { (buttonIndex) -> Void in
             if buttonIndex == NSModalResponseOK {
-                if let URLs = panel.URLs as? [NSURL] {
-                    self.convertURLs(URLs)
-                }
+                self.convertURLs(panel.URLs)
             }
         })
     }
 
     func convertURLs(URLs: [NSURL]) {
-        let images = compact(URLs.map { Image.fromDirectoryAtURL($0) }).flattern(identity)
+        let images = URLs.flatMap { Image.fromDirectoryAtURL($0) }.flattern(identity)
         convertImages(images)
     }
 
     func convertFiles(files: [String]) {
-        let images = compact(files.map { Image.fromDirectoryAtPath($0) }).flattern(identity)
+        let images = files.flatMap { Image.fromDirectoryAtPath($0) }.flattern(identity)
         convertImages(images)
     }
 
@@ -136,21 +134,21 @@ class MainViewController: NSViewController, NSOpenSavePanelDelegate {
 
 extension Image {
     var scale: Int {
-        if let regex = NSRegularExpression(pattern: "@([2-9])x$", options: nil, error: nil) {
-            let lastComponent = fileURL.absoluteString?.lastPathComponent.stringByDeletingPathExtension ?? ""
-            if let match = regex.firstMatchInString(lastComponent, options: nil, range: NSMakeRange(0, count(lastComponent))) {
-                if let scale = (lastComponent as NSString).substringWithRange(match.rangeAtIndex(1)).toInt() {
+        do {
+            let regex = try NSRegularExpression(pattern: "@([2-9])x$", options: [])
+            let component = fileURL.URLByDeletingPathExtension?.lastPathComponent ?? ""
+            if let match = regex.firstMatchInString(component, options: [], range: NSMakeRange(0, component.characters.count)) {
+                if let scale = Int((component as NSString).substringWithRange(match.rangeAtIndex(1))) {
                     return scale
                 }
             }
-        }
+        } catch { }
         return 1
     }
 
     var filename: String {
-        let lastComponent = (fileURL.lastPathComponent ?? "")
-        return lastComponent.stringByReplacingOccurrencesOfString("@\(scale)x",
-            withString: "").stringByDeletingPathExtension
+        let lastComponent = (fileURL.URLByDeletingPathExtension?.lastPathComponent ?? "")
+        return lastComponent.stringByReplacingOccurrencesOfString("@\(scale)x", withString: "")
     }
 
     var fileExtension: String {

@@ -9,7 +9,7 @@
 import Cocoa
 
 extension Array {
-    func flattern<U>(identity: ([T]) -> [[U]]) -> [U] {
+    func flattern<U>(identity: ([Element]) -> [[U]]) -> [U] {
         let x: [[U]] = identity(self)
         return x.reduce([], combine: +)
     }
@@ -17,14 +17,4 @@ extension Array {
 
 func identity<T>(x: T) -> T {
     return x
-}
-
-
-func compact<T>(x: [T?]) -> [T] {
-    return reduce(x, []) { (l, o) -> [T] in
-        if let o = o {
-            return l + [o]
-        }
-        return l
-    }
 }

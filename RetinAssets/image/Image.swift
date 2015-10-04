@@ -17,9 +17,9 @@ struct Image {
     ////////////////////////////////////////////////////////////////////////////
 
     init?(filepath: String) {
-        if let url = NSURL(fileURLWithPath: filepath),
-            ext = url.pathExtension where contains(supportedExtensions, ext) {
-                fileURL = url
+        let url = NSURL(fileURLWithPath: filepath)
+        if let ext = url.pathExtension where supportedExtensions.contains(ext) {
+            fileURL = url
         }
         else {
             return nil
@@ -27,7 +27,7 @@ struct Image {
     }
 
     init?(fileURL: NSURL) {
-        if let ext = fileURL.pathExtension where contains(supportedExtensions, ext) {
+        if let ext = fileURL.pathExtension where supportedExtensions.contains(ext) {
             self.fileURL = fileURL
         }
         else {
@@ -42,14 +42,11 @@ struct Image {
     ////////////////////////////////////////////////////////////////////////////
 
     static func fromDirectoryAtPath(path: String) -> [Image]? {
-        if let url = NSURL(fileURLWithPath: path) {
-            return fromDirectoryAtURL(url)
-        }
-        return nil
+        return fromDirectoryAtURL(NSURL(fileURLWithPath: path))
     }
 
     static func fromDirectoryAtURL(url: NSURL) -> [Image]? {
-        return compact(url.childrenFileURLs().map { Image(fileURL: $0) })
+        return url.childrenFileURLs().flatMap { Image(fileURL: $0) }
     }
 
     ////////////////////////////////////////////////////////////////////////////
@@ -59,32 +56,31 @@ struct Image {
     ////////////////////////////////////////////////////////////////////////////
 
     func resizeAtScale(factor: CGFloat) -> NSData? {
-        if let src = NSImage(contentsOfURL: fileURL),
-            representation = src.representations.first as? NSImageRep {
-                src.size = NSSize(width: representation.pixelsWide, height: representation.pixelsHigh)
+        if let src = NSImage(contentsOfURL: fileURL), representation = src.representations.first {
+            src.size = NSSize(width: representation.pixelsWide, height: representation.pixelsHigh)
 
-                let newSize = NSSize(width: ceil(src.size.width / factor), height: ceil(src.size.height / factor))
-                let bitmap = NSBitmapImageRep(bitmapDataPlanes: nil,
-                    pixelsWide: Int(newSize.width),
-                    pixelsHigh: Int(newSize.height),
-                    bitsPerSample: 8,
-                    samplesPerPixel: 4,
-                    hasAlpha: true,
-                    isPlanar: false,
-                    colorSpaceName: NSCalibratedRGBColorSpace,
-                    bytesPerRow: 0,
-                    bitsPerPixel: 0)
+            let newSize = NSSize(width: ceil(src.size.width / factor), height: ceil(src.size.height / factor))
+            let bitmap = NSBitmapImageRep(bitmapDataPlanes: nil,
+                pixelsWide: Int(newSize.width),
+                pixelsHigh: Int(newSize.height),
+                bitsPerSample: 8,
+                samplesPerPixel: 4,
+                hasAlpha: true,
+                isPlanar: false,
+                colorSpaceName: NSCalibratedRGBColorSpace,
+                bytesPerRow: 0,
+                bitsPerPixel: 0)
 
-                if let bitmap = bitmap {
-                    bitmap.size = newSize
+            if let bitmap = bitmap {
+                bitmap.size = newSize
 
-                    NSGraphicsContext.saveGraphicsState()
-                    NSGraphicsContext.setCurrentContext(NSGraphicsContext(bitmapImageRep: bitmap))
-                    src.drawInRect(NSRect(origin: .zeroPoint, size: newSize), fromRect: .zeroRect, operation: .CompositeCopy, fraction: 1)
-                    NSGraphicsContext.restoreGraphicsState()
+                NSGraphicsContext.saveGraphicsState()
+                NSGraphicsContext.setCurrentContext(NSGraphicsContext(bitmapImageRep: bitmap))
+                src.drawInRect(NSRect(origin: .zero, size: newSize), fromRect: .zero, operation: .CompositeCopy, fraction: 1)
+                NSGraphicsContext.restoreGraphicsState()
 
-                    return bitmap.representationUsingType(.NSPNGFileType, properties: [:])
-                }
+                return bitmap.representationUsingType(.NSPNGFileType, properties: [:])
+            }
         }
         return nil
     }

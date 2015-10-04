@@ -13,22 +13,19 @@ extension NSURL {
     ////////////////////////////////////////////////////////////////////////////
 
     var directoryURL: Bool {
-        //CFURLHasDirectoryPath returns a Boolean which isn't a Bool type.
-        //We have to check for true/false manually.
-        return CFURLHasDirectoryPath(self as CFURL) == 1
+        return CFURLHasDirectoryPath(self as CFURL)
     }
 
     func childrenFileURLs() -> [NSURL] {
-        if self.directoryURL {
-            let contents = NSFileManager.defaultManager().contentsOfDirectoryAtURL(self,
+        if directoryURL {
+            let contents = try? NSFileManager.defaultManager().contentsOfDirectoryAtURL(self,
                 includingPropertiesForKeys: nil,
-                options: NSDirectoryEnumerationOptions.SkipsHiddenFiles,
-                error: nil)
+                options: .SkipsHiddenFiles)
 
-            if let contents = contents as? [NSURL] {
-                return reduce(contents, [], { (list, url) -> [NSURL] in
+            if let contents = contents {
+                return contents.reduce([]) { (list, url) -> [NSURL] in
                     return list + url.childrenFileURLs()
-                })
+                }
             }
         }
         return [self]
